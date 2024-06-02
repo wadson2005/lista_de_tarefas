@@ -1,0 +1,5 @@
+<form method="POST">
+    {% csrf_token %}
+    <p>Tem certeza de que deseja excluir "{{ task.title }}"?</p>
+    <button type="submit">Confirmar Exclusão</button>
+</form>
