@@ -21,8 +21,8 @@ def delete_task(request, task_id):
         return redirect('index')  
     return render(request, 'todo/delete.html', {'task': task})
 
-def complet_task(request, task_id):
-    task = Task.objects.get(id=task_id)
+def complete_task(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
     task.completed = True
     task.save()
     return redirect('/')
