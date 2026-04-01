@@ -1,50 +1,99 @@
-# Projeto de Tarefas (Todo List)
+# Lista de Tarefas (Django)
 
-Um projeto simples de lista de tarefas (todo list) utilizando Django.
+Aplicacao web simples para gerenciar tarefas com Django.
 
 ## Funcionalidades
-- Adicionar tarefas
-- Excluir tarefas
 
-## Instalação
-1. **Clone o repositório:**
+- Criar tarefa
+- Marcar tarefa como concluida
+- Excluir tarefa (com confirmacao)
 
-```sh
-    git clone https://github.com/wadson2005/lista_de_tarefas.git
-   cd lista_de_tarefas
+## Tecnologias
+
+- Python
+- Django 5
+- SQLite3
+- Bootstrap 4 (via CDN)
+
+## Requisitos
+
+- Python 3.10+
+- pip
+
+## Como executar
+
+- Passo 1: Clonar o repositorio:
+
+```bash
+git clone https://github.com/wadson2005/lista_de_tarefas.git
+cd lista_de_tarefas
 ```
 
-2. Crie e ative um ambiente virtual:
+- Passo 2: Criar e ativar ambiente virtual:
 
-```sh
-    python -m venv venv
-    source venv/bin/activate 
+Linux/macOS:
+
+```bash
+python -m venv venv
+source venv/bin/activate
 ```
 
- No Windows:
+Windows (PowerShell):
 
-```sh
-    venv\Scripts\activate
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
 ```
 
-3. Instale as dependências:
+- Passo 3: Instalar dependencias:
 
-```sh
-    pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
 ```
 
-4. Aplique as migrações:
+- Passo 4: Aplicar migracoes:
 
-```sh
-    python manage.py migrate
+```bash
+python manage.py migrate
 ```
 
-5. Inicie o servidor:
+- Passo 5: Executar servidor:
 
-```sh
-    python manage.py runserver
+```bash
+python manage.py runserver
 ```
 
-## Uso
-• Acesse no navegador: `http://127.0.0.1:8000/`
-• Adicione e gerencie suas tarefas.
+- Passo 6: Acessar no navegador:
+
+```text
+http://127.0.0.1:8000/
+```
+
+## Rotas principais
+
+- `/` : lista tarefas e cria nova tarefa
+- `/complete/<task_id>/` : marca tarefa como concluida
+- `/delete/<task_id>/` : confirma e exclui tarefa
+- `/admin/` : painel administrativo Django
+
+## Estrutura do projeto
+
+```text
+task/                 # Configuracoes do projeto Django
+todo/                 # App principal (models, views, forms, urls)
+todo/templates/todo/  # Templates HTML
+db.sqlite3            # Banco de dados local
+manage.py             # Comandos de execucao e administracao
+```
+
+## Modelo de dados
+
+`Task`
+
+- `title` (CharField)
+- `completed` (BooleanField)
+
+## Observacoes
+
+- O arquivo `requirements.txt` ja inclui as dependencias do projeto.
+- Para ambiente de desenvolvimento, `DEBUG=True` em `task/settings.py`.
